@@ -40,8 +40,7 @@
     <StartupObject>VPNStatusTray.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>vpn.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -108,6 +107,7 @@
     <Content Include="Images\log.png" />
     <Content Include="Images\setting.png" />
     <Content Include="Images\warning.ico" />
+    <Content Include="vpn.ico" />
     <None Include="Images\red.ico" />
     <None Include="Images\orange.ico" />
   </ItemGroup>
