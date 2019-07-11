@@ -32,11 +32,12 @@ namespace VPNStatusTray
         /// </summary>
         public void Init()
         {
+
             // Put the icon in the system tray and allow it react to mouse clicks.			
             ni.MouseClick += new MouseEventHandler(ni_MouseClick);
 
-            NetworkChange.NetworkAvailabilityChanged +=
-                       new NetworkAvailabilityChangedEventHandler(NetworkChange_NetworkAvailabilityChanged);
+            //NetworkChange.NetworkAvailabilityChanged +=
+            //           new NetworkAvailabilityChangedEventHandler(NetworkChange_NetworkAvailabilityChanged);
 
             NetworkChange.NetworkAddressChanged += new NetworkAddressChangedEventHandler(AddressChangedCallback);
 
@@ -51,8 +52,6 @@ namespace VPNStatusTray
             }
             else
             {
-                ni.Icon = Resources.red;
-                ni.Text = "not connected";
                 CheckStatus();
             }
         }
@@ -60,13 +59,15 @@ namespace VPNStatusTray
         {
             CheckStatus();
         }
-        void NetworkChange_NetworkAvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
-        {
-            CheckStatus();
-        }
+        //void NetworkChange_NetworkAvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
+        //{
+        //    CheckStatus();
+        //}
 
         public static void CheckStatus()
         {
+            ni.Icon = Resources.red;
+            ni.Text = "not connected";
             var sett = AppSettings.GetSetting();
             var status = VPNStatus.GetVPNStatus();
             switch (status)

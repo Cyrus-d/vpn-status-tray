@@ -104,6 +104,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\green.ico" />
+    <Content Include="Images\exit.png" />
+    <Content Include="Images\log.png" />
     <Content Include="Images\setting.png" />
     <Content Include="Images\warning.ico" />
     <None Include="Images\red.ico" />
