@@ -66,7 +66,7 @@ namespace VPNStatusTray
 			if (!isSettingLoaded)
 			{
 				isSettingLoaded = true;
-				new SettingForm().ShowDialog();
+				new SettingForm().Show();
 				isSettingLoaded = false;
 			}
 		}
