@@ -81,7 +81,7 @@ namespace VPNStatusTray
                     if (string.IsNullOrEmpty(sett.TargetCountry))
                         ni.Text = "connected";
                     else
-                        ni.Text = "connected but not to specified target country (" + sett.TargetCountry + ")";
+                        ni.Text = "not connected to target country (" + sett.TargetCountry + ")";
                     break;
                 case VPNState.connectedToCountry:
                     ni.Icon = Resources.green;
