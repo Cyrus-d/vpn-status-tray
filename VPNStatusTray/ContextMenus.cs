@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
 using VPNStatusTray.Properties;
 
@@ -54,7 +55,10 @@ namespace VPNStatusTray
 
         private void Logs_Click(object sender, EventArgs e)
         {
-            Process.Start("log.txt");
+            if (File.Exists("log.txt"))
+                Process.Start("log.txt");
+            else
+                MessageBox.Show("No log file found.");
         }
 
         /// <summary>
