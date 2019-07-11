@@ -1,12 +1,8 @@
-# SystemTrayApp
-A quick example of a basic system tray app using .NET Windows Forms. Use this to build your own solutions.
-
-The application displays an empty window at the center of the screen. Minimizing or closing the window hides it to the system tray. Double-clicking on the system tray icon reveals the window again. To exit the application, right-click on the system tray icon and choose Exit.
+# VPNStatusTray
+Tray icon to show vpn state.
 
 # License
 MIT License
-
-Copyright (c) 2016 Kevin Sacro
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,4 +23,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 # Icon License
-You may choose to use the default icon included this app for your own solutions. Just so all bases are covered for you: it is provided  under a Creative Commons Attribution 4.0 International License (https://creativecommons.org/licenses/by/4.0/).
+icons used in this app are from 'https://www.iconfinder.com/'.
