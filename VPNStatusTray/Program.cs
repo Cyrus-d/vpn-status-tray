@@ -29,7 +29,7 @@ namespace VPNStatusTray
             CountryList.SetCountryList();
 
             // Show the system tray icon.					
-            using (VPNChecker pi = new VPNChecker())
+            using (Main pi = new Main())
             {
                 pi.Init();
 

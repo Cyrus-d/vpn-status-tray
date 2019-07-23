@@ -48,6 +48,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Instrumentation" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -61,7 +63,9 @@
   <ItemGroup>
     <Compile Include="ContextMenus.cs" />
     <Compile Include="Models\Setting.cs" />
-    <Compile Include="VPNChecker.cs" />
+    <Compile Include="Utils\VPNConnections.cs" />
+    <Compile Include="Utils\VPNManager.cs" />
+    <Compile Include="Main.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingForm.cs">

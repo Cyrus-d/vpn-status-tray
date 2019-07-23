@@ -42,22 +42,26 @@
             this.label6 = new System.Windows.Forms.Label();
             this.ddlOriginCountry = new System.Windows.Forms.ComboBox();
             this.ddlVpnTargetCountry = new System.Windows.Forms.ComboBox();
+            this.ddlVPNList = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 196);
+            this.label1.Location = new System.Drawing.Point(21, 152);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 20);
+            this.label1.Size = new System.Drawing.Size(102, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "VPN Target Country";
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(137, 279);
+            this.btnCancel.Location = new System.Drawing.Point(276, 190);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 40);
+            this.btnCancel.Size = new System.Drawing.Size(50, 26);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -65,9 +69,10 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(338, 279);
+            this.btnSave.Location = new System.Drawing.Point(341, 190);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 40);
+            this.btnSave.Size = new System.Drawing.Size(50, 26);
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -75,51 +80,57 @@
             // 
             // tbIpgeolocation
             // 
-            this.tbIpgeolocation.Location = new System.Drawing.Point(188, 88);
+            this.tbIpgeolocation.Location = new System.Drawing.Point(125, 57);
+            this.tbIpgeolocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbIpgeolocation.Name = "tbIpgeolocation";
-            this.tbIpgeolocation.Size = new System.Drawing.Size(173, 26);
+            this.tbIpgeolocation.Size = new System.Drawing.Size(244, 20);
             this.tbIpgeolocation.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 91);
+            this.label3.Location = new System.Drawing.Point(19, 59);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 20);
+            this.label3.Size = new System.Drawing.Size(105, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "Ipgeolocation Token";
             // 
             // tbIpinfo
             // 
-            this.tbIpinfo.Location = new System.Drawing.Point(188, 56);
+            this.tbIpinfo.Location = new System.Drawing.Point(125, 36);
+            this.tbIpinfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbIpinfo.Name = "tbIpinfo";
-            this.tbIpinfo.Size = new System.Drawing.Size(173, 26);
+            this.tbIpinfo.Size = new System.Drawing.Size(244, 20);
             this.tbIpinfo.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(81, 59);
+            this.label4.Location = new System.Drawing.Point(54, 38);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 20);
+            this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Ipinfo Token";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(362, 24);
+            this.label5.Location = new System.Drawing.Point(382, 16);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 20);
+            this.label5.Size = new System.Drawing.Size(39, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "default";
             // 
             // rbipinfo
             // 
             this.rbipinfo.AutoSize = true;
-            this.rbipinfo.Location = new System.Drawing.Point(379, 58);
+            this.rbipinfo.Location = new System.Drawing.Point(394, 38);
+            this.rbipinfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbipinfo.Name = "rbipinfo";
-            this.rbipinfo.Size = new System.Drawing.Size(21, 20);
+            this.rbipinfo.Size = new System.Drawing.Size(14, 13);
             this.rbipinfo.TabIndex = 12;
             this.rbipinfo.TabStop = true;
             this.rbipinfo.UseVisualStyleBackColor = true;
@@ -127,9 +138,10 @@
             // rbipgeolocation
             // 
             this.rbipgeolocation.AutoSize = true;
-            this.rbipgeolocation.Location = new System.Drawing.Point(379, 90);
+            this.rbipgeolocation.Location = new System.Drawing.Point(394, 58);
+            this.rbipgeolocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbipgeolocation.Name = "rbipgeolocation";
-            this.rbipgeolocation.Size = new System.Drawing.Size(21, 20);
+            this.rbipgeolocation.Size = new System.Drawing.Size(14, 13);
             this.rbipgeolocation.TabIndex = 13;
             this.rbipgeolocation.TabStop = true;
             this.rbipgeolocation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -139,17 +151,19 @@
             // 
             this.lblError.AutoSize = true;
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(13, 353);
+            this.lblError.Location = new System.Drawing.Point(9, 229);
+            this.lblError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 20);
+            this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 14;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(73, 164);
+            this.label6.Location = new System.Drawing.Point(49, 132);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 20);
+            this.label6.Size = new System.Drawing.Size(73, 13);
             this.label6.TabIndex = 15;
             this.label6.Text = "Origin Country";
             // 
@@ -157,25 +171,49 @@
             // 
             this.ddlOriginCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlOriginCountry.FormattingEnabled = true;
-            this.ddlOriginCountry.Location = new System.Drawing.Point(189, 159);
+            this.ddlOriginCountry.Location = new System.Drawing.Point(126, 128);
+            this.ddlOriginCountry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ddlOriginCountry.Name = "ddlOriginCountry";
-            this.ddlOriginCountry.Size = new System.Drawing.Size(172, 28);
+            this.ddlOriginCountry.Size = new System.Drawing.Size(243, 21);
             this.ddlOriginCountry.TabIndex = 16;
             // 
             // ddlVpnTargetCountry
             // 
             this.ddlVpnTargetCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlVpnTargetCountry.FormattingEnabled = true;
-            this.ddlVpnTargetCountry.Location = new System.Drawing.Point(189, 193);
+            this.ddlVpnTargetCountry.Location = new System.Drawing.Point(126, 150);
+            this.ddlVpnTargetCountry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ddlVpnTargetCountry.Name = "ddlVpnTargetCountry";
-            this.ddlVpnTargetCountry.Size = new System.Drawing.Size(172, 28);
+            this.ddlVpnTargetCountry.Size = new System.Drawing.Size(243, 21);
             this.ddlVpnTargetCountry.TabIndex = 17;
+            // 
+            // ddlVPNList
+            // 
+            this.ddlVPNList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlVPNList.FormattingEnabled = true;
+            this.ddlVPNList.Location = new System.Drawing.Point(125, 92);
+            this.ddlVPNList.Margin = new System.Windows.Forms.Padding(2);
+            this.ddlVPNList.Name = "ddlVPNList";
+            this.ddlVPNList.Size = new System.Drawing.Size(244, 21);
+            this.ddlVPNList.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 95);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Default VPN Interface";
             // 
             // SettingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(510, 350);
+            this.ClientSize = new System.Drawing.Size(439, 248);
+            this.Controls.Add(this.ddlVPNList);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.ddlVpnTargetCountry);
             this.Controls.Add(this.ddlOriginCountry);
             this.Controls.Add(this.label6);
@@ -190,6 +228,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SettingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SettingForm";
@@ -215,5 +254,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox ddlOriginCountry;
         private System.Windows.Forms.ComboBox ddlVpnTargetCountry;
+        private System.Windows.Forms.ComboBox ddlVPNList;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VPNStatusTray.Utils
 {
     public static class CountryList
     {
         static string[] cultureArr;
-        public static string[] GetCountryList()
+        public static object[] GetCountryList()
         {
             if (cultureArr != null) return cultureArr;
 

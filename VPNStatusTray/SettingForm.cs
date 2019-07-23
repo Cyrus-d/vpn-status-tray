@@ -18,12 +18,14 @@ namespace VPNStatusTray
         {
             ddlOriginCountry.Items.AddRange(CountryList.GetCountryList());
             ddlVpnTargetCountry.Items.AddRange(CountryList.GetCountryList());
+            ddlVPNList.Items.AddRange(VPNConnections.GetConnections());
 
             var set = AppSettings.GetSetting();
             tbIpgeolocation.Text = set.IpgeolocationToken;
             tbIpinfo.Text = set.IpinfoToken;
             ddlOriginCountry.SelectedIndex = ddlOriginCountry.FindStringExact(set.OriginCountry);
             ddlVpnTargetCountry.SelectedIndex = ddlVpnTargetCountry.FindStringExact(set.TargetCountry);
+            ddlVPNList.SelectedIndex = ddlVPNList.FindStringExact(set.DefaultVPNInterface);
             rbipinfo.Checked = set.DefaultGeolocationProvider == GeolocationProvider.ipinfo;
             rbipgeolocation.Checked = set.DefaultGeolocationProvider == GeolocationProvider.ipgeolocation;
             currentSetting = set;
@@ -39,12 +41,13 @@ namespace VPNStatusTray
                 IpinfoToken = tbIpinfo.Text,
                 IpgeolocationToken = tbIpgeolocation.Text,
                 OriginCountry = ddlOriginCountry.Text,
-                DefaultGeolocationProvider = rbipinfo.Checked ? GeolocationProvider.ipinfo : GeolocationProvider.ipgeolocation
+                DefaultGeolocationProvider = rbipinfo.Checked ? GeolocationProvider.ipinfo : GeolocationProvider.ipgeolocation,
+                DefaultVPNInterface = ddlVPNList.Text
             });
             lblError.Text = AppSettings.ValidateSetting();
             if (string.IsNullOrEmpty(lblError.Text))
             {
-                VPNChecker.CheckStatus();
+                Main.CheckStatus();
                 Close();
             }
         }

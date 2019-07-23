@@ -10,6 +10,7 @@ namespace VPNStatusTray.Models
     {
         
         public string TargetCountry { get; set; }
+        public string DefaultVPNInterface { get; set; }
         public string IpinfoToken { get; set; }
         public string IpgeolocationToken { get; set; }
         public string OriginCountry { get; set; }

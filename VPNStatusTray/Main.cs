@@ -11,17 +11,19 @@ namespace VPNStatusTray
     /// <summary>
     /// 
     /// </summary>
-    class VPNChecker : IDisposable
+    class Main : IDisposable
     {
         /// <summary>
         /// The NotifyIcon object.
         /// </summary>
-        static  NotifyIcon ni;
+        static NotifyIcon ni;
+
+        private static bool _isConnected = false;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VPNChecker"/> class.
+        /// Initializes a new instance of the <see cref="Main"/> class.
         /// </summary>
-        public VPNChecker()
+        public Main()
         {
             // Instantiate the NotifyIcon object.
             ni = new NotifyIcon();
@@ -32,18 +34,12 @@ namespace VPNStatusTray
         /// </summary>
         public void Init()
         {
-
-            // Put the icon in the system tray and allow it react to mouse clicks.			
             ni.MouseClick += new MouseEventHandler(ni_MouseClick);
-
-            //NetworkChange.NetworkAvailabilityChanged +=
-            //           new NetworkAvailabilityChangedEventHandler(NetworkChange_NetworkAvailabilityChanged);
 
             NetworkChange.NetworkAddressChanged += new NetworkAddressChangedEventHandler(AddressChangedCallback);
 
             ni.Visible = true;
 
-            // Attach a context menu.
             ni.ContextMenuStrip = new ContextMenus().Create();
 
             if (!AppSettings.IsValidSetting())
@@ -55,14 +51,10 @@ namespace VPNStatusTray
                 CheckStatus();
             }
         }
-         void AddressChangedCallback(object sender, EventArgs e)
+        void AddressChangedCallback(object sender, EventArgs e)
         {
             CheckStatus();
         }
-        //void NetworkChange_NetworkAvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
-        //{
-        //    CheckStatus();
-        //}
 
         public static void CheckStatus()
         {
@@ -70,27 +62,30 @@ namespace VPNStatusTray
             ni.Text = "not connected";
             var sett = AppSettings.GetSetting();
             var status = VPNStatus.GetVPNStatus();
+            _isConnected = false;
             switch (status)
             {
                 case VPNState.notConnected:
-                    ni.Icon = Resources.red;
-                    ni.Text = "not connected";
-                    break;
-                case VPNState.copnnected:
-                    ni.Icon = Resources.warning;
-                    if (string.IsNullOrEmpty(sett.TargetCountry))
-                        ni.Text = "connected";
-                    else
-                        ni.Text = "not connected to target country (" + sett.TargetCountry + ")";
-                    break;
+                ni.Icon = Resources.red;
+                ni.Text = "not connected";
+                break;
+                case VPNState.connected:
+                ni.Icon = Resources.warning;
+                _isConnected = true;
+                if (string.IsNullOrEmpty(sett.TargetCountry))
+                    ni.Text = "connected";
+                else
+                    ni.Text = "not connected to target country (" + sett.TargetCountry + ")";
+                break;
                 case VPNState.connectedToCountry:
-                    ni.Icon = Resources.green;
-                    ni.Text = "connected to " + sett.TargetCountry;
-                    break;
+                _isConnected = true;
+                ni.Icon = Resources.green;
+                ni.Text = "connected to " + sett.TargetCountry;
+                break;
                 default:
-                    ni.Icon = Resources.red;
-                    ni.Text = "not connected";
-                    break;
+                ni.Icon = Resources.red;
+                ni.Text = "not connected";
+                break;
             }
         }
 
@@ -106,10 +101,25 @@ namespace VPNStatusTray
         /// <param name="e">The <see cref="System.Windows.Forms.MouseEventArgs"/> instance containing the event data.</param>
         void ni_MouseClick(object sender, MouseEventArgs e)
         {
-            // Handle mouse button clicks.
             if (e.Button == MouseButtons.Left)
             {
-                Process.Start("ms-settings:network-vpn");
+                var sett = AppSettings.GetSetting();
+                if (string.IsNullOrEmpty(sett.DefaultVPNInterface))
+                {
+                    Process.Start("ms-settings:network-vpn");
+                }
+                else
+                {
+                    var vpnManager = new VPNManager(sett.DefaultVPNInterface);
+                    if (_isConnected)
+                    {
+                        vpnManager.DisconnectAll();
+                    }
+                    else
+                    {
+                        vpnManager.Connect();
+                    }
+                }
             }
         }
     }

@@ -5,7 +5,7 @@ namespace VPNStatusTray.Utils
     public enum VPNState
     {
         notConnected,
-        copnnected,
+        connected,
         connectedToCountry
     }
     public static class VPNStatus
@@ -23,7 +23,7 @@ namespace VPNStatusTray.Utils
 
             if (location.EnglishName == sett.TargetCountry) return VPNState.connectedToCountry;
 
-            return VPNState.copnnected;
+            return VPNState.connected;
         }
 
     }

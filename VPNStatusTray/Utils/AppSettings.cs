@@ -32,23 +32,30 @@ namespace VPNStatusTray.Utils
         {
             var sett = GetSetting();
 
-            if (string.IsNullOrEmpty(sett.IpgeolocationToken) && string.IsNullOrEmpty(sett.IpinfoToken)) {
+            if (string.IsNullOrEmpty(sett.IpgeolocationToken) && string.IsNullOrEmpty(sett.IpinfoToken))
+            {
                 return "Token has not been provided";
-             };
-            if (sett.DefaultGeolocationProvider == GeolocationProvider.ipinfo 
+            };
+
+            if (sett.DefaultGeolocationProvider == GeolocationProvider.ipinfo
                 && string.IsNullOrEmpty(sett.IpinfoToken))
             {
                 return "Token has not been provided for default provider";
             };
-            if (sett.DefaultGeolocationProvider == GeolocationProvider.ipgeolocation 
+            if (sett.DefaultGeolocationProvider == GeolocationProvider.ipgeolocation
                 && string.IsNullOrEmpty(sett.IpgeolocationToken))
             {
                 return "Token has not been provided for default provider";
             };
 
-            if(string.IsNullOrEmpty(sett.OriginCountry))
+            if (string.IsNullOrEmpty(sett.OriginCountry))
             {
                 return "Enter Origin Country (country that blocks Internet)";
+            }
+
+            if (string.IsNullOrEmpty(sett.DefaultVPNInterface))
+            {
+                return "Select default VPN interface";
             }
 
             return null;
@@ -56,7 +63,7 @@ namespace VPNStatusTray.Utils
 
         internal static bool IsValidSetting()
         {
-            var message=ValidateSetting();
+            var message = ValidateSetting();
             return string.IsNullOrEmpty(message);
         }
     }
