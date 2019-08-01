@@ -6,7 +6,7 @@ namespace VPNStatusTray.Utils
     {
         notConnected,
         connected,
-        connectedToCountry
+        connectedToTargetCountry
     }
     public static class VPNStatus
     {
@@ -21,7 +21,7 @@ namespace VPNStatusTray.Utils
 
             if (location == null || location.EnglishName == sett.OriginCountry) return VPNState.notConnected;
 
-            if (location.EnglishName == sett.TargetCountry) return VPNState.connectedToCountry;
+            if (location.EnglishName == sett.TargetCountry) return VPNState.connectedToTargetCountry;
 
             return VPNState.connected;
         }

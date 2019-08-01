@@ -18,6 +18,8 @@ namespace VPNStatusTray
         /// </summary>
         static NotifyIcon ni;
 
+
+
         private static bool _isConnected = false;
 
         /// <summary>
@@ -48,6 +50,9 @@ namespace VPNStatusTray
             }
             else
             {
+                var sett = AppSettings.GetSetting();
+                if (sett.WebSocketEnabled)
+                    WebSocket.Start(sett.WebSocketPort);
                 CheckStatus();
             }
         }
@@ -62,6 +67,7 @@ namespace VPNStatusTray
             ni.Text = "not connected";
             var sett = AppSettings.GetSetting();
             var status = VPNStatus.GetVPNStatus();
+            WebSocket.Send((int)status);
             _isConnected = false;
             switch (status)
             {
@@ -77,7 +83,7 @@ namespace VPNStatusTray
                 else
                     ni.Text = "not connected to target country (" + sett.TargetCountry + ")";
                 break;
-                case VPNState.connectedToCountry:
+                case VPNState.connectedToTargetCountry:
                 _isConnected = true;
                 ni.Icon = Resources.green;
                 ni.Text = "connected to " + sett.TargetCountry;

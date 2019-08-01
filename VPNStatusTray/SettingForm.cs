@@ -30,23 +30,38 @@ namespace VPNStatusTray
             rbipgeolocation.Checked = set.DefaultGeolocationProvider == GeolocationProvider.ipgeolocation;
             currentSetting = set;
             lblError.Text = AppSettings.ValidateSetting();
-
+            cbWebSocket.Checked = set.WebSocketEnabled;
+            tbPort.Text = set.WebSocketPort == 0 ? 8181.ToString() : set.WebSocketPort.ToString();
+            tbPort.Enabled = set.WebSocketEnabled;
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            AppSettings.SetSetting(new Setting()
+
+            var oldSett = AppSettings.GetSetting();
+
+            var newSetting = new Setting()
             {
                 TargetCountry = ddlVpnTargetCountry.Text,
                 IpinfoToken = tbIpinfo.Text,
                 IpgeolocationToken = tbIpgeolocation.Text,
                 OriginCountry = ddlOriginCountry.Text,
                 DefaultGeolocationProvider = rbipinfo.Checked ? GeolocationProvider.ipinfo : GeolocationProvider.ipgeolocation,
-                DefaultVPNInterface = ddlVPNList.Text
-            });
+                DefaultVPNInterface = ddlVPNList.Text,
+                WebSocketEnabled = cbWebSocket.Checked,
+                WebSocketPort = Convert.ToInt32(tbPort.Text)
+            };
+
+            AppSettings.SetSetting(newSetting);
             lblError.Text = AppSettings.ValidateSetting();
+
             if (string.IsNullOrEmpty(lblError.Text))
             {
+                if (newSetting.WebSocketEnabled && oldSett.WebSocketPort != newSetting.WebSocketPort)
+                    WebSocket.ChangePort(newSetting.WebSocketPort);
+
+                if (!newSetting.WebSocketEnabled) WebSocket.CloseAll();
+
                 Main.CheckStatus();
                 Close();
             }
@@ -56,6 +71,11 @@ namespace VPNStatusTray
         {
             AppSettings.SetSetting(currentSetting);
             Close();
+        }
+
+        private void CbWebSocket_CheckedChanged(object sender, EventArgs e)
+        {
+            tbPort.Enabled = cbWebSocket.Checked;
         }
     }
 }

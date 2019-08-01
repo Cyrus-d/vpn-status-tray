@@ -43,6 +43,10 @@
     <ApplicationIcon>vpn.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Fleck, Version=0.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Fleck.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -80,6 +84,7 @@
     <Compile Include="Utils\VPNInterface.cs" />
     <Compile Include="Utils\AppSettings.cs" />
     <Compile Include="Utils\VPNStatus.cs" />
+    <Compile Include="Utils\WebSocket.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -111,6 +116,7 @@
     <Content Include="Images\log.png" />
     <Content Include="Images\setting.png" />
     <Content Include="Images\warning.ico" />
+    <Content Include="Libraries\Fleck.dll" />
     <Content Include="vpn.ico" />
     <None Include="Images\red.ico" />
     <None Include="Images\orange.ico" />

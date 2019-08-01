@@ -1,0 +1,77 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Fleck;
+
+namespace VPNStatusTray.Utils
+{
+    public class WebSocket
+    {
+        private static List<IWebSocketConnection> _allSockets;
+        public static bool Start(int port)
+        {
+            _allSockets = new List<IWebSocketConnection>();
+
+            try
+            {
+                var server = new WebSocketServer("ws://0.0.0.0:" + port);
+                server.Start(socket =>
+                {
+                    socket.OnOpen = () =>
+                    {
+                        _allSockets.Add(socket);
+                    };
+                    socket.OnClose = () =>
+                    {
+                        _allSockets.Remove(socket);
+                    };
+                    socket.OnMessage = message =>
+                    {
+                        if (message == "request_status")
+                        {
+                            var status = VPNStatus.GetVPNStatus();
+                            Send((int)status);
+                        }
+                        else
+                        {
+                            _allSockets.ToList().ForEach(s => s.Send("Echo: " + message));
+                        }
+                    };
+                });
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.WriteLog(e.Message);
+                return false;
+            }
+        }
+
+        public static void ChangePort(int port)
+        {
+            CloseAll();
+            Start(port);
+        }
+
+        public static void Send(int status)
+        {
+            foreach (var socket in _allSockets.ToList())
+            {
+                if (socket.IsAvailable)
+                    socket.Send(status.ToString());
+                else
+                    socket.Close();
+            }
+        }
+
+        public static void CloseAll()
+        {
+            foreach (var socket in _allSockets.ToList())
+            {
+                socket.Close();
+            }
+        }
+    }
+}

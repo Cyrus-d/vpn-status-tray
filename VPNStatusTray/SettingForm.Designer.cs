@@ -44,6 +44,12 @@
             this.ddlVpnTargetCountry = new System.Windows.Forms.ComboBox();
             this.ddlVPNList = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.tbPort = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cbWebSocket = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -58,8 +64,8 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(276, 190);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Location = new System.Drawing.Point(254, 318);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(50, 26);
             this.btnCancel.TabIndex = 5;
@@ -69,8 +75,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(341, 190);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Location = new System.Drawing.Point(319, 318);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(50, 26);
             this.btnSave.TabIndex = 6;
@@ -81,7 +87,7 @@
             // tbIpgeolocation
             // 
             this.tbIpgeolocation.Location = new System.Drawing.Point(125, 57);
-            this.tbIpgeolocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbIpgeolocation.Margin = new System.Windows.Forms.Padding(2);
             this.tbIpgeolocation.Name = "tbIpgeolocation";
             this.tbIpgeolocation.Size = new System.Drawing.Size(244, 20);
             this.tbIpgeolocation.TabIndex = 10;
@@ -99,7 +105,7 @@
             // tbIpinfo
             // 
             this.tbIpinfo.Location = new System.Drawing.Point(125, 36);
-            this.tbIpinfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbIpinfo.Margin = new System.Windows.Forms.Padding(2);
             this.tbIpinfo.Name = "tbIpinfo";
             this.tbIpinfo.Size = new System.Drawing.Size(244, 20);
             this.tbIpinfo.TabIndex = 8;
@@ -128,7 +134,7 @@
             // 
             this.rbipinfo.AutoSize = true;
             this.rbipinfo.Location = new System.Drawing.Point(394, 38);
-            this.rbipinfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbipinfo.Margin = new System.Windows.Forms.Padding(2);
             this.rbipinfo.Name = "rbipinfo";
             this.rbipinfo.Size = new System.Drawing.Size(14, 13);
             this.rbipinfo.TabIndex = 12;
@@ -139,7 +145,7 @@
             // 
             this.rbipgeolocation.AutoSize = true;
             this.rbipgeolocation.Location = new System.Drawing.Point(394, 58);
-            this.rbipgeolocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbipgeolocation.Margin = new System.Windows.Forms.Padding(2);
             this.rbipgeolocation.Name = "rbipgeolocation";
             this.rbipgeolocation.Size = new System.Drawing.Size(14, 13);
             this.rbipgeolocation.TabIndex = 13;
@@ -172,7 +178,7 @@
             this.ddlOriginCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlOriginCountry.FormattingEnabled = true;
             this.ddlOriginCountry.Location = new System.Drawing.Point(126, 128);
-            this.ddlOriginCountry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ddlOriginCountry.Margin = new System.Windows.Forms.Padding(2);
             this.ddlOriginCountry.Name = "ddlOriginCountry";
             this.ddlOriginCountry.Size = new System.Drawing.Size(243, 21);
             this.ddlOriginCountry.TabIndex = 16;
@@ -182,7 +188,7 @@
             this.ddlVpnTargetCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlVpnTargetCountry.FormattingEnabled = true;
             this.ddlVpnTargetCountry.Location = new System.Drawing.Point(126, 150);
-            this.ddlVpnTargetCountry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ddlVpnTargetCountry.Margin = new System.Windows.Forms.Padding(2);
             this.ddlVpnTargetCountry.Name = "ddlVpnTargetCountry";
             this.ddlVpnTargetCountry.Size = new System.Drawing.Size(243, 21);
             this.ddlVpnTargetCountry.TabIndex = 17;
@@ -207,11 +213,76 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "Default VPN Interface";
             // 
+            // tbPort
+            // 
+            this.tbPort.Location = new System.Drawing.Point(125, 273);
+            this.tbPort.Margin = new System.Windows.Forms.Padding(2);
+            this.tbPort.Name = "tbPort";
+            this.tbPort.Size = new System.Drawing.Size(244, 20);
+            this.tbPort.TabIndex = 21;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(95, 276);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(26, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Port";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(48, 214);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 13);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "WebSocket";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(49, 229);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(224, 13);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Will broadcast vpn status to other applications";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(81, 254);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 13);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Enable";
+            // 
+            // cbWebSocket
+            // 
+            this.cbWebSocket.AutoSize = true;
+            this.cbWebSocket.Location = new System.Drawing.Point(126, 254);
+            this.cbWebSocket.Name = "cbWebSocket";
+            this.cbWebSocket.Size = new System.Drawing.Size(15, 14);
+            this.cbWebSocket.TabIndex = 25;
+            this.cbWebSocket.UseVisualStyleBackColor = true;
+            this.cbWebSocket.CheckedChanged += new System.EventHandler(this.CbWebSocket_CheckedChanged);
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 248);
+            this.ClientSize = new System.Drawing.Size(439, 362);
+            this.Controls.Add(this.cbWebSocket);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.tbPort);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.ddlVPNList);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ddlVpnTargetCountry);
@@ -228,7 +299,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SettingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SettingForm";
@@ -256,5 +327,11 @@
         private System.Windows.Forms.ComboBox ddlVpnTargetCountry;
         private System.Windows.Forms.ComboBox ddlVPNList;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbPort;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.CheckBox cbWebSocket;
     }
 }
