@@ -9,10 +9,10 @@ namespace VPNStatusTray.Utils
 {
     public class WebSocket
     {
-        private static List<IWebSocketConnection> _allSockets;
+        private static List<IWebSocketConnection> _allSockets= new List<IWebSocketConnection>();
         public static bool Start(int port)
         {
-            _allSockets = new List<IWebSocketConnection>();
+            _allSockets.Clear();
 
             try
             {
