@@ -38,12 +38,12 @@ namespace VPNStatusTray.Utils
         public static RegionInfo GetIpinfo()
         {
             var sett = AppSettings.GetSetting();
-            return GetRegionInfo(GeolocationProvider.ipinfo,"https://ipinfo.io/?token=" + sett.IpinfoToken, "country");
+            return GetRegionInfo(GeolocationProvider.ipinfo, "https://ipinfo.io/?token=" + sett.IpinfoToken, "country");
         }
         public static RegionInfo GetIpgeolocation()
         {
             var sett = AppSettings.GetSetting();
-            return GetRegionInfo(GeolocationProvider.ipgeolocation,"https://api.ipgeolocation.io/ipgeo?apiKey=" + sett.IpgeolocationToken, "country_code2");
+            return GetRegionInfo(GeolocationProvider.ipgeolocation, "https://api.ipgeolocation.io/ipgeo?apiKey=" + sett.IpgeolocationToken, "country_code2");
         }
         private static RegionInfo GetRegionInfo(GeolocationProvider provider, string url, string field)
         {
@@ -51,6 +51,7 @@ namespace VPNStatusTray.Utils
             {
                 using (WebClient client = new WebClient())
                 {
+                    client.Timeout = 10000;
                     string info = client.DownloadString(url);
                     JObject data = JObject.Parse(info);
                     var country = (string)data[field];

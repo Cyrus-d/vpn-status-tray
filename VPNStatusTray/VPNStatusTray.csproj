@@ -84,6 +84,9 @@
     <Compile Include="Utils\VPNInterface.cs" />
     <Compile Include="Utils\AppSettings.cs" />
     <Compile Include="Utils\VPNStatus.cs" />
+    <Compile Include="Utils\WebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Utils\WebSocket.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

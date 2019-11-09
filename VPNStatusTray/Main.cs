@@ -37,6 +37,8 @@ namespace VPNStatusTray
         public void Init()
         {
             ni.MouseClick += new MouseEventHandler(ni_MouseClick);
+            ni.Icon = Resources.red;
+            ni.Text = "not connected";
 
             NetworkChange.NetworkAddressChanged += new NetworkAddressChangedEventHandler(AddressChangedCallback);
 
@@ -53,7 +55,6 @@ namespace VPNStatusTray
                 var sett = AppSettings.GetSetting();
                 if (sett.WebSocketEnabled)
                     WebSocket.Start(sett.WebSocketPort);
-                CheckStatus();
             }
         }
         void AddressChangedCallback(object sender, EventArgs e)
