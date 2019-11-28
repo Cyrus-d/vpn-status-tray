@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using VPNStatusTray.Properties;
@@ -42,6 +43,8 @@ namespace VPNStatusTray
 
             NetworkChange.NetworkAddressChanged += new NetworkAddressChangedEventHandler(AddressChangedCallback);
 
+            new Proxy().OnChange(CheckStatus);
+
             ni.Visible = true;
 
             ni.ContextMenuStrip = new ContextMenus().Create();
@@ -57,6 +60,8 @@ namespace VPNStatusTray
                     WebSocket.Start(sett.WebSocketPort);
             }
         }
+
+
         void AddressChangedCallback(object sender, EventArgs e)
         {
             CheckStatus();
@@ -67,16 +72,16 @@ namespace VPNStatusTray
             ni.Icon = Resources.red;
             ni.Text = "not connected";
             var sett = AppSettings.GetSetting();
-            var status = VPNStatus.GetVPNStatus();
+            var status = ConnectionStatus.GetStatus();
             WebSocket.Send((int)status);
             _isConnected = false;
             switch (status)
             {
-                case VPNState.notConnected:
+                case ConnectionState.notConnected:
                 ni.Icon = Resources.red;
                 ni.Text = "not connected";
                 break;
-                case VPNState.connected:
+                case ConnectionState.connected:
                 ni.Icon = Resources.warning;
                 _isConnected = true;
                 if (string.IsNullOrEmpty(sett.TargetCountry))
@@ -84,7 +89,7 @@ namespace VPNStatusTray
                 else
                     ni.Text = "not connected to target country (" + sett.TargetCountry + ")";
                 break;
-                case VPNState.connectedToTargetCountry:
+                case ConnectionState.connectedToTargetCountry:
                 _isConnected = true;
                 ni.Icon = Resources.green;
                 ni.Text = "connected to " + sett.TargetCountry;

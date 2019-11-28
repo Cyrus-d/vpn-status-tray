@@ -9,7 +9,7 @@ namespace VPNStatusTray.Utils
 {
     public class WebSocket
     {
-        private static List<IWebSocketConnection> _allSockets= new List<IWebSocketConnection>();
+        private static List<IWebSocketConnection> _allSockets = new List<IWebSocketConnection>();
         public static bool Start(int port)
         {
             _allSockets.Clear();
@@ -31,7 +31,7 @@ namespace VPNStatusTray.Utils
                     {
                         if (message == "request_status")
                         {
-                            var status = VPNStatus.GetVPNStatus();
+                            var status = ConnectionStatus.GetStatus();
                             Send((int)status);
                         }
                         else

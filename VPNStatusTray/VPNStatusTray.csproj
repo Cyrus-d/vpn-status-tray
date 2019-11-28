@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="ContextMenus.cs" />
     <Compile Include="Models\Setting.cs" />
+    <Compile Include="Utils\Proxy.cs" />
     <Compile Include="Utils\VPNConnections.cs" />
     <Compile Include="Utils\VPNManager.cs" />
     <Compile Include="Main.cs" />
@@ -83,7 +84,7 @@
     <Compile Include="Utils\Log.cs" />
     <Compile Include="Utils\VPNInterface.cs" />
     <Compile Include="Utils\AppSettings.cs" />
-    <Compile Include="Utils\VPNStatus.cs" />
+    <Compile Include="Utils\ConnectionStatus.cs" />
     <Compile Include="Utils\WebClient.cs">
       <SubType>Component</SubType>
     </Compile>
