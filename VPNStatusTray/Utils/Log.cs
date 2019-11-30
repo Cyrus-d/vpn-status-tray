@@ -11,9 +11,10 @@ namespace VPNStatusTray.Utils
     {
         public static void WriteLog(string log)
         {
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log.txt");
             StringBuilder sb = new StringBuilder();
             sb.Append(DateTime.Now.ToLongTimeString() + ": " + log + Environment.NewLine);
-            File.AppendAllText("log.txt", sb.ToString());
+            File.AppendAllText(path, sb.ToString());
             sb.Clear();
         }
     }

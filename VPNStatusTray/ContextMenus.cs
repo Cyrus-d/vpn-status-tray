@@ -55,8 +55,9 @@ namespace VPNStatusTray
 
         private void Logs_Click(object sender, EventArgs e)
         {
-            if (File.Exists("log.txt"))
-                Process.Start("log.txt");
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log.txt");
+            if (File.Exists(path))
+                Process.Start(path);
             else
                 MessageBox.Show("No log file found.");
         }

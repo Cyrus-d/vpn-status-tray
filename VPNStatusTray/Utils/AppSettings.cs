@@ -8,7 +8,7 @@ namespace VPNStatusTray.Utils
 {
     public static class AppSettings
     {
-        private static readonly string path = "setting.json";
+        private static readonly string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.json");
         public static Setting GetSetting()
         {
             if (!File.Exists(path)) return new Setting();
